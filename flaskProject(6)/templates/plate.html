@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "homebase.html" %}
+{% block head %}
+    {{ super() }}
+    {% block title %}Plates{% endblock %}
+{% endblock %}
+{% block body %}
+    {{ super() }}
+    <div style="width: 80%; margin: 0 auto; height: auto">
+    <div class="leftLeader">
+        <a href="/plate/sharing" class="centerLeaderButton2">Sharing</a>
+        <a href="/plate/programming" class="centerLeaderButton2">Programming</a>
+        <a href="/plate/java" class="centerLeaderButton2">Java</a>
+        <a href="/plate/python" class="centerLeaderButton2">Python</a>
+        <a href="/plate/ios" class="centerLeaderButton2">iOS</a>
+        <a href="/plate/android" class="centerLeaderButton2">Android</a>
+        <a href="/plate/html" class="centerLeaderButton2">html</a>
+        <a href="/plate/javascript" class="centerLeaderButton2">Javascript</a>
+        <a href="/plate/css" class="centerLeaderButton2">css</a>
+        <a href="/plate/algorithm" class="centerLeaderButton2">Algorithm</a>
+        <a href="/plate/database" class="centerLeaderButton2">Database</a>
+    </div>
+    <div class="informationContent">
+    {% for x in article %}
+        <a href="/SearchResult/{{ x[0] }}">
+        <div>
+        <div class="smallTitle">
+            <b>{{ x[2] }} </b>
+            <b style="float: right">Author: {{ x[1] }}</b></div>
+        <div class="articleContent" style="height: 90px">
+        {% if (x[3] | length)<40 %}
+            <p>{{ x[3][0:40] }}&nbsp;</p>
+        {% else %}
+            <p>{{ x[3][0:40] }}...&nbsp;</p>
+        {% endif %}
+            <p style="float:right;">Clicks: {{ x[7] }}  Comments: {{ x[5] }}  Collected: {{ x[6] }}</p>
+        </div>
+
+        </div>
+        </a>
+    {% endfor %}
+    </div>
+    </div>
+{% endblock %}
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "articlebase.html" %}
+{% block head %}
+    {{ super() }}
+    {% block title %}Search Result{% endblock %}
+{% endblock %}
+{% block body %}
+    {{ super() }}
+        {% for item in article %}
+            <a href="/SearchResult/{{ item[0] }}">
+        <div class="articleComment">
+        <div class="smallTitle">
+        <b>{{ item[2] }} </b></div>
+        <div class="articleContent">
+        {% if (item[3] | length)<40 %}
+            <p>{{ item[3][0:40]}}&nbsp;</p>
+        {% else %}
+            <p>{{ item[3][0:40] }}...&nbsp;</p>
+        {% endif %}
+        </div>
+        </div>
+            </a>
+    {% endfor %}
+
+
+{% endblock %}
+</html>

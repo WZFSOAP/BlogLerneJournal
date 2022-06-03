@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel=" stylesheet" type="text/css" href="../static/css/style.css">
+</head>
+<body>
+<ul>
+  <li><a href="/login">LOGIN</a></li>
+</ul>
+  <div class="loginbox">
+       <img src="../static/image/pic1.jpg" class="avatar" alt="">
+       <h1>Login</h1>
+       <form action="/" method="post"enctype="multipart/form-data" >
+           <p>Username</p >
+           <label>
+               <input type="text" name="user"placeholder="enter username" required>
+           </label>
+           <p>Password</p>
+           <label>
+               <input type="password" name="pass"placeholder="enter password" required>
+           </label>
+           <input type="submit" value="login">
+           <br> <a href="/lost" methods="get">Lost your password?</a><br>
+           <a href="/register" methods="get">sign up</a>
+       </form>
+   </div>
+</body>
+</html>

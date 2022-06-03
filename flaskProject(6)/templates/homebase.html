@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block head %}
+        <title>{% block title %}{% endblock %}_GOO</title>
+        <link rel=" stylesheet" type="text/css" href="../static/css/style.css">
+    {% endblock %}
+</head>
+
+<body>
+{% block body %}
+    <div style="height: 30px">
+    <ul>
+        <li><a href="/">Home</a> </li>
+        <li><a href="/submit">Submit</a> </li>
+        <li><a href="/user">Personal information</a> </li>
+        <li><a href="/history">History</a></li>
+        <li><a href="/logout">Log out</a></li>
+        <li><a><span> HELLO! {{ name }}, WELCOME TO GOO!</span> </a> </li>
+        <li><a href="/startchat">Chatting</a></li>
+    </ul>
+    </div>
+{% endblock %}
+
+</body>
+
+</html>

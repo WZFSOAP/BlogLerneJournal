@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "homebase.html" %}
+{% block head %}
+    {{ super() }}
+    {% block title %}User Information{% endblock %}
+{% endblock %}
+{% block body %}
+    {{ super() }}
+    <div class="loginbox">
+       {% if p ==0 %}
+           <img src="../static/image/pic1.jpg" class="avatar" alt="">
+       {% else %}
+           <img src='data:image/png;base64,{{ pic }}'; class="avatar" alt="">
+       {% endif %}
+       <h1>About me</h1>
+       <form action="/change" method="get">
+           <p>Major</p>
+           <label>
+               <br>
+               {% if list[0][0]==null %}
+                   <p>Please complete your information.</p>
+               {% else %}
+                   <p>{{ list[0][0] }}</p>
+               {% endif %}
+           <br>
+           <P>Signature</P>
+           </label>
+           <br>
+           {% if list[0][1]==null %}
+               <p>Please complete your information.</p>
+           {% else %}
+               <p>{{list[0][1]}}</p>
+            {% endif %}
+           </label>
+           <br>
+           <p>followers: {{ long }}</p>
+           <input type="submit" value="Click to change information">
+       </form>
+   </div>
+{% endblock %}
+</html>

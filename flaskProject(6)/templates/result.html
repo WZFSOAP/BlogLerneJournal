@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "articlebase.html" %}
+{% block head %}
+    {{ super() }}
+    {% block title %}{{ item }}{% endblock %}
+{% endblock %}
+
+{% block body %}
+    {{ super() }}
+    <script>
+    var c =1;
+    function a() {
+        c++;
+        if(c%2==0) {
+            document.getElementById('btn').style.backgroundColor='red'
+            return 1
+        }else{
+            document.getElementById('btn').style.backgroundColor='#ffc107'
+            return 0
+        }
+
+    }
+    function f() {
+        var modal = document.getElementById('myModal');
+        // 打开弹窗的按钮对象
+       var btn = document.getElementById("myBtn");
+       // 获取 <span> 元素，用于关闭弹窗
+       var span = document.querySelector('.close');
+       // 点击按钮打开弹窗
+       btn.onclick = function() {
+           modal.style.display = "block";
+       }
+       // 点击 <span> (x), 关闭弹窗
+      span.onclick = function() {
+          modal.style.display = "none";
+      }
+      // 在用户点击其他地方时，关闭弹窗
+        window.onclick = function(event) {
+           if (event.target == modal) {
+               modal.style.display = "none";
+           }
+       }
+    }
+    function g() {
+        var modal = document.getElementById('my');
+        // 打开弹窗的按钮对象
+       var btn = document.getElementById("btn");
+       // 获取 <span> 元素，用于关闭弹窗
+       var span = document.querySelector('.close');
+       // 点击按钮打开弹窗
+       btn.onclick = function() {
+           modal.style.display = "block";
+       }
+       // 点击 <span> (x), 关闭弹窗
+      span.onclick = function() {
+          modal.style.display = "none";
+      }
+      // 在用户点击其他地方时，关闭弹窗
+        window.onclick = function(event) {
+           if (event.target == modal) {
+               modal.style.display = "none";
+           }
+       }
+    }
+    function x() {
+        var modal = document.getElementById('modal');
+        // 打开弹窗的按钮对象
+       var btn = document.getElementById("tn");
+       // 获取 <span> 元素，用于关闭弹窗
+       var span = document.querySelector('.close');
+       // 点击按钮打开弹窗
+       btn.onclick = function() {
+           modal.style.display = "block";
+       }
+       // 点击 <span> (x), 关闭弹窗
+      span.onclick = function() {
+          modal.style.display = "none";
+      }
+      // 在用户点击其他地方时，关闭弹窗
+        window.onclick = function(event) {
+           if (event.target == modal) {
+               modal.style.display = "none";
+           }
+       }
+    }
+</script>
+
+    <div class = "articleTitle"><h2>{{ title }}</h2></div>
+    <div class = "articleContent">
+
+    <a href="/space/{{ author }}">
+    <div style="margin-top: 5px">
+        {% if p ==0 %}
+           <img src="../static/image/pic1.jpg" class="articleHead" alt="">
+       {% else %}
+           <img src='data:image/png;base64,{{ pic }}'; class="articleHead" alt="">
+       {% endif %}
+        <h4 style="display:inline;"> Author: {{ author }}</h4>
+    </div>
+    </a>
+
+        <p>{{ content[0:] }}</p>
+        <div style="text-align: center;">
+            {% if boolean==True%}
+            <button class="buttonstyle"  id="tn" onclick="x()">defollow it!</button>
+            {% else %}
+             <button class="buttonstyle"  id="btn" onclick="g()">follow it!</button>
+            {% endif %}
+            <button class="buttonstyle" id="myBtn" onclick="f()">comment!</button></div>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <form action="/SearchResult/{{ item }}" method="post" >
+                    <div class="smallTitle" style="background: #ffc107"><h2><center>Comment on this article</center></h2></div>
+                    <div class="smallTitle" style="background: white">
+                    <label>
+                        <center><input class="commentInput" type="text" name="comment" placeholder="Enter your comment here please! " required>
+                    </center>
+                    </label>
+                    </div>
+                    <center><input type="submit" value="submit" class="buttonstyle"></center>
+                </form>
+            </div>
+        </div>
+        <div id="my" class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                  <form action="/changefollowes/{{ item }}" method="POST" >
+                    <div class="smallTitle" style="background: #ffc107"><h2><center>follow the author</center></h2></div>
+                    <div class="smallTitle" style="background: white">
+                    </div>
+                    <center><input type="submit" value="follow" class="buttonstyle"></center>
+                  </form>
+            </div>
+        </div>
+        <div id="modal" class="modal">
+              <div class="modal-content">
+                <span class="close">&times;</span>
+                  <form action="/deletefollowes/{{ item }}" method="POST" >
+                    <div class="smallTitle" style="background: #ffc107"><h2><center>defollow the author</center></h2></div>
+                    <div class="smallTitle" style="background: white">
+                    </div>
+                    <center><input type="submit" value="defollow" class="buttonstyle"></center>
+                  </form>
+            </div>
+        </div>
+    </div>
+
+    <div class = "articleComment">
+    <h4 class = "smallTitle"> Comments: </h4>
+
+    {% for item1 in comment %}
+        <div class = "singleComment">
+            <p style="font-weight: bold">{{ item1[0]}}:
+            {% if item1[0]==name %}
+                <p>{{ item1[1] }}</p><a href="/deletecomment1/{{ item }}/{{ item1[3] }}">Delete!</a></p>
+            {% else %}
+                <p>{{ item1[1] }}</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+    </p>
+    </div>
+{% endblock %}
+
+</html>

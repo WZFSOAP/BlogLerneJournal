@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block head %}
+        <title>{% block title %}{% endblock %}_GOO</title>
+        <link rel=" stylesheet" type="text/css" href="../static/css/style.css">
+    {% endblock %}
+</head>
+
+<body>
+    <div style="height: 20px">
+    <ul>
+        <li><a href="/">Home</a> </li>
+        <li><a href="/submit">Submit</a> </li>
+        <li><a href="/user">Personal information</a> </li>
+        <li><a href="/history">History</a></li>
+        <li><a href="/logout">Log out</a></li>
+        <li><a><span> HELLO! {{ name }}, WELCOME TO GOO!</span> </a> </li>
+        <li><a href="/startchat">Chatting</a></li>
+    </ul>
+    </div>
+
+    <div class = articlediv>
+    {% block body %}{% endblock %}
+    </div>
+
+    <div class="smallimg">
+    <p style="font-weight: bold">Personal Center</p>
+        <div style="float: left; margin-right: 15px">
+            <a href="/user"><img src="../static/image/self.png" width="50px" height="50px"/><br>My Info</a>
+        </div>
+        <div style="float: left; margin-right: 15px">
+            <a href="/follow/{{ name }}"><img src="../static/image/friends.png" width="50px" height="50px"/><br>Friends</a>
+        </div>
+        <div style="float: left; margin-right: 15px">
+            <a href="/startchat"><img src="../static/image/comment.png" width="50px" height="50px"/><br>Reply</a>
+        </div>
+        <div style="float: left">
+            <a href="/user"><img src="../static/image/config.png" width="50px" height="50px"/><br>Config</a>
+        </div>
+        <form action="/submit" method="get">
+        <button style="border-color: aquamarine; margin-top: 20px; background: white; width: 270px; height: 50px;">Share your articles now!</button>
+        </form>
+    <p style="font-weight: bold"><br>Popular Articles<br></p>
+    <p>1. Coming soon...</p>
+        <p>2. Coming soon...</p>
+        <p>3. Coming soon...</p>
+        <p>4. Coming soon...</p>
+        <p>5. Coming soon...</p>
+        <button style="border-color: aquamarine; margin-top: 0px; background: white; width: 270px; height: 50px;">Not interest? Click to change!</button>
+    <p style="font-weight: bold"><br>Useful Tools<br></p>
+     <div style="float: left; margin-right: 15px">
+            <a href="https://www.bjut.edu.cn/"><img src="../static/image/bjut.jpg" width="50px" height="50px"/><br>To BJUT</a>
+        </div>
+     <div style="float: left; margin-right: 15px">
+            <a href="https://www.ucd.ie/connect/"><img src="../static/image/ucd.jpg" width="50px" height="50px"/><br>To UCD</a>
+        </div>
+    <p style="font-weight: bold"><br><br><br><br><br>Contact Us<br></p>
+        <p>Group: 13</p>
+    <p>Email: 1197382542@qq.com</p>
+    </div>
+
+</body>
+
+
+</html>

@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <link rel=" stylesheet" type="text/css" href="../static/css/style.css">
+    <script>
+        function validateForm(){
+	    var x=document.forms["myForm"]["email"].value;
+	    var atpos=x.indexOf("@");
+	    var dotpos=x.lastIndexOf(".");
+	    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length){
+            alert("It's not an efficient e-mail address");
+            return false;
+        }
+        }
+
+        function inprove(attr) {
+            var flag = document.getElementById(attr);
+            var regex = /^.*(?=.{6,14})(?=.*[A-Z]{1,})(?=.*[a-z]{1,})(?=.*[!@#$%^&*?,.\(\)]).*$/g;
+            if (!(flag.value.match(regex))) {
+                document.getElementById("checkPassword").innerText = "Low password strength, please add uppercase and lowercase letters and special characters";
+                document.getElementById("checkPassword").style.color = "red";
+            } else {
+                document.getElementById("checkPassword").innerText = "High password strength";
+                document.getElementById("checkPassword").style.color = "green";
+            }
+        }
+
+        window.onload = function() {
+            var password = document.getElementById("password");
+            password.onkeyup = function() {
+                inprove("password");
+            }
+        }
+
+</script>
+</head>
+<body>
+<ul>
+  <li><a href="/login">LOGIN</a></li>
+</ul>
+  <div class="loginbox">
+       <img src="../static/image/pic1.jpg" class="avatar" alt="">
+       <h1>Sign Up</h1>
+       <form name="myForm" action="/login" onsubmit="return validateForm();" method="post">
+           <p>Username</p>
+           <label>
+               <input id="username" type="text" name="username" placeholder="enter username" required>
+           </label>
+           <p>Password</p>
+           <label>
+               <input type="password" id="password" name="password" placeholder="enter password" required>
+           </label>
+           <p1 id="checkPassword"></p1>
+           <p>Email</p >
+           <label>
+               <input type="text" name="email" placeholder="enter your email" required>
+           </label>
+           <input type="submit" value="Sign up">
+       </form>
+   </div>
+
+</body>
+</html>

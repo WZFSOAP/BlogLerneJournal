@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "articlebase.html" %}
+{% block head %}
+    {{ super() }}
+    {% block title %}User's History Articles{% endblock %}
+{% endblock %}
+{% block body %}
+    {{ super() }}
+    {% for x in article %}
+        <a href="/detail/{{ x[0] }}">
+        <div class="articleComment">
+        <div class="smallTitle">
+            <b>{{ x[2] }} </b></div>
+        <div class="articleContent">
+        {% if (x[3] | length)<40 %}
+            <p>{{ x[3][0:40] }}</p><br>
+        {% else %}
+            <p>{{ x[3][0:40] }}...</p><br>
+        {% endif %}
+        </div>
+        </div>
+        </a>
+    {% endfor %}
+    </div>
+
+{% endblock %}
+</html>

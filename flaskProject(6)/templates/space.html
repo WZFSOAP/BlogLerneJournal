@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block head %}
+        <title>{% block title %}{% endblock %}_GOO</title>
+        <link rel=" stylesheet" type="text/css" href="../static/css/style.css">
+    {% endblock %}
+</head>
+
+<body>
+    <div style="height: 20px">
+    <ul>
+        <li><a href="/">Home</a> </li>
+        <li><a href="/submit">Submit</a> </li>
+        <li><a href="/user">Personal information</a> </li>
+        <li><a href="/history">History</a></li>
+        <li><a href="/logout">Log out</a></li>
+        <li><a><span> HELLO! {{ name }}, WELCOME TO GOO!</span> </a> </li>
+    </ul>
+    </div>
+
+    <div class = "informationTitle">
+    <div style="float: left; margin-top: 80px;margin-left: 20px;">
+       {% if p ==0 %}
+           <img src="../static/image/pic1.jpg" class="headPhoto" alt="">
+       {% else %}
+           <img src='data:image/png;base64,{{ pic }}'; class="headPhoto" alt="">
+       {% endif %}
+    </div>
+    <div style="float: left; margin-top: 60px; margin-left: 20px;">
+       <h2>{{ name }}</h2>
+        <p>Major: {{ list[0][0] }}    Signature: {{list[0][1]}}</p>
+    </div>
+    <div style="float: right; margin-top: 110px; margin-left: 20px;">
+        <a href="/space/{{ name }}" class="leftLeaderButton">Articles</a>
+        <a href="/spacefollows/{{ name }} " class="leftLeaderButton">Follows</a>
+        <a href="/spacefans/{{ name }}" class="leftLeaderButton">Fans</a>
+    </div>
+    <div class="informationContent" style="width: 96%; margin-top: 5px;">
+    {% block body %}{% endblock %}
+    </div>
+    </div>
+
+</body>
+</html>

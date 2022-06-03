@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "space.html" %}
+{% block head %}
+    {{ super() }}
+    {% block title %}Users' Follows{% endblock %}
+{% endblock %}
+{% block body %}
+    {{ super() }}
+    {% for i in follows %}
+        <a href="/space/{{ i[0] }}" style="text-decoration:none">
+        <div style="height: 70px; margin-bottom: 10px; padding: 10px;">
+        <div style="float: left">
+            {% if i[1] ==0 %}
+           <img src="../static/image/pic1.jpg" class="headPhoto" alt="">
+            {% else %}
+           <img src='data:image/png;base64,{{ i[2] }}'; class="headPhoto" alt="">
+            {% endif %}
+        </div>
+        <div style="float: left; margin-left: 20px">
+            <h3>{{ i[0] }}</h3>
+        </div>
+        </div>
+        </a>
+    {% endfor %}
+    </div>
+
+{% endblock %}
+</html>

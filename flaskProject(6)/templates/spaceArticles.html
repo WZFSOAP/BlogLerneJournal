@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "space.html" %}
+{% block head %}
+    {{ super() }}
+    {% block title %}Users' Articles{% endblock %}
+{% endblock %}
+{% block body %}
+    {{ super() }}
+    {% for x in article %}
+        <a href="/SearchResult/{{ x[0] }}">
+        <div class="smallTitle">
+            <b>{{ x[2] }} </b></div>
+        <div class="articleContent">
+        {% if (x[3] | length)<40 %}
+            <p>{{ x[3][0:40] }}</p><br>
+        {% else %}
+            <p>{{ x[3][0:40] }}...&nbsp;</p><br>
+        {% endif %}
+        </div>
+        </a>
+    {% endfor %}
+    </div>
+
+{% endblock %}
+</html>

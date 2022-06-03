@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "homebase.html" %}
+{% block head %}
+    {{ super() }}
+    {% block title %}Submitted Successfully{% endblock %}
+{% endblock %}
+{% block body %}
+    {{ super() }}
+    <div class="loginbox">
+       <img src="../static/image/pic1.jpg" class="avatar" alt="">
+       <h1>Submitted Successfully</h1>
+      <form action="/history" method="get">
+           <input type="submit" value="Click to see your articles!">
+       </form>
+   </div>
+{% endblock %}
+</html>

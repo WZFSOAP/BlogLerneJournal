@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "homebase.html" %}
+{% block head %}
+    {{ super() }}
+    {% block title %}Home{% endblock %}
+{% endblock %}
+{% block body %}
+    {{ super() }}
+<center><div>
+<form name="input"method="post" action="/search">
+    <br><br><br><br><br><br>
+    <h2>Search</h2>
+    <label>
+        <input class = "commentInput" style="width: 60%; height: 35px; " type="text" name="search"placeholder="Enter key words to search articles">
+        <input class = "buttonstyle" type="submit" value="search">
+    </label>
+    <h2>Plates</h2>
+    <center><div style="width: 80%">
+        <a href="/plate/sharing" class="centerLeaderButton">Sharing</a>
+        <a href="/plate/programming" class="centerLeaderButton">Programming</a>
+        <a href="/plate/java" class="centerLeaderButton">Java</a>
+        <a href="/plate/python" class="centerLeaderButton">Python</a>
+        <a href="/plate/ios" class="centerLeaderButton">iOS</a>
+        <a href="/plate/android" class="centerLeaderButton">Android</a>
+        <a href="/plate/html" class="centerLeaderButton">html</a>
+        <a href="/plate/javascript" class="centerLeaderButton">Javascript</a>
+        <a href="/plate/css" class="centerLeaderButton">css</a>
+        <a href="/plate/algorithm" class="centerLeaderButton">Algorithm</a>
+        <a href="/plate/database" class="centerLeaderButton">Database</a>
+    </div></center>
+</form>
+</div>
+    </center>
+{% endblock %}
+</html>
